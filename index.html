@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C-3 工作坊 · 一号位群像 / Founders' Wall</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23262d20'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='serif' font-size='18' fill='%23f5f2ec' font-weight='700'%3EC%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#F5F2EC;
+  --paper-2:#EDE8DC;
+  --paper-warm:#FAF6EE;
+  --ink:#1A1A1A;
+  --ink-2:#3A3A36;
+  --muted:#7A7A70;
+  --line:#D8D2C4;
+  --olive:#5C6644;
+  --olive-deep:#3E4631;
+  --olive-tint:rgba(92,102,68,0.07);
+  --accent:#262d20;
+  --terracotta:#8B5E3C;
+  --slate:#4A5568;
+  --navy:#2C3E50;
+  --wine:#5B2333;
+  --forest:#2D4A3E;
+  --sand:#A89F91;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Times New Roman","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  line-height:1.55;
+  overflow-x:hidden;
+  position:relative;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:999;
+}
+.sans{font-family:"Helvetica Neue",Helvetica,"PingFang SC","Microsoft YaHei",Arial,sans-serif}
+
+/* ───────── MASTHEAD ───────── */
+.masthead{
+  border-bottom:2px solid var(--ink);
+  padding:16px 48px 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  background:var(--paper);
+  position:sticky;top:0;z-index:50;
+}
+.masthead .brand{
+  font-size:12px;letter-spacing:0.4em;text-transform:uppercase;
+  font-weight:700;font-family:"Helvetica Neue",sans-serif;
+}
+.masthead .issue{
+  font-size:10px;letter-spacing:0.25em;color:var(--muted);
+  font-family:"Helvetica Neue",sans-serif;text-transform:uppercase;
+}
+
+/* ───────── HERO ───────── */
+.hero{
+  padding:100px 48px 80px;
+  border-bottom:1px solid var(--line);
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:80px;
+  align-items:end;
+  min-height:70vh;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"C3";
+  position:absolute;
+  right:-40px;top:-60px;
+  font-size:380px;
+  font-weight:900;
+  font-family:"Times New Roman",serif;
+  color:rgba(92,102,68,0.04);
+  letter-spacing:-0.08em;
+  pointer-events:none;
+  line-height:1;
+}
+.hero .kicker{
+  font-size:11px;letter-spacing:0.35em;text-transform:uppercase;
+  margin-bottom:28px;font-family:"Helvetica Neue",sans-serif;font-weight:600;
+  color:var(--olive);
+}
+.hero h1{
+  font-size:clamp(56px,8vw,130px);
+  line-height:0.9;letter-spacing:-0.04em;font-weight:700;
+}
+.hero h1 em{font-style:italic;color:var(--olive)}
+.hero h1 .num{
+  display:block;font-size:clamp(120px,16vw,260px);
+  font-weight:900;letter-spacing:-0.06em;
+  color:transparent;
+  -webkit-text-stroke:2px var(--olive-deep);
+  line-height:0.8;margin-bottom:12px;
+}
+.hero .deck{
+  font-size:17px;line-height:1.75;color:var(--ink-2);
+  max-width:380px;border-left:2px solid var(--olive);
+  padding-left:24px;font-style:italic;
+  align-self:end;
+}
+.hero .deck strong{font-style:normal;font-weight:700}
+.hero .deck .stat{
+  display:block;margin-top:18px;font-style:normal;
+  font-family:"Helvetica Neue",sans-serif;font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+}
+
+/* ───────── FILTER BAR ───────── */
+.filter-bar{
+  display:flex;gap:0;padding:0 48px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);position:sticky;top:46px;z-index:40;
+  overflow-x:auto;
+}
+.filter-bar .label{
+  padding:14px 18px 14px 0;font-size:10px;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--muted);
+  font-family:"Helvetica Neue",sans-serif;font-weight:700;
+  border-right:1px solid var(--line);margin-right:6px;white-space:nowrap;
+}
+.filter-bar button{
+  background:none;border:none;padding:13px 13px;cursor:pointer;
+  font-size:12px;font-family:"Helvetica Neue","PingFang SC",sans-serif;
+  color:var(--ink-2);letter-spacing:0.04em;transition:all .2s;
+  position:relative;white-space:nowrap;
+}
+.filter-bar button:hover{color:var(--olive-deep)}
+.filter-bar button.active{color:var(--olive-deep);font-weight:700}
+.filter-bar button.active::after{
+  content:"";position:absolute;left:13px;right:13px;bottom:0;
+  height:2.5px;background:var(--olive-deep);
+}
+
+/* ───────── MASONRY ───────── */
+.wall{padding:48px;column-count:4;column-gap:28px}
+@media(max-width:1400px){.wall{column-count:3}}
+@media(max-width:1000px){.wall{column-count:2;padding:28px}}
+@media(max-width:640px){
+  .wall{column-count:1;padding:20px}
+  .hero{grid-template-columns:1fr;padding:60px 24px 50px;gap:40px;min-height:auto}
+  .hero .deck{max-width:none;align-self:start}
+  .hero h1 .num{font-size:100px}
+  .masthead{padding:12px 20px 10px}
+  .filter-bar{padding:0 20px}
+}
+
+/* ───────── CARD BASE ───────── */
+.card{
+  break-inside:avoid;margin-bottom:28px;background:var(--paper-warm);
+  border:1px solid var(--line);padding:0;cursor:pointer;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease,border-color .3s;
+  opacity:0;transform:translateY(50px);position:relative;overflow:hidden;
+}
+.card.visible{opacity:1;transform:translateY(0)}
+.card:hover{
+  transform:translateY(-8px) scale(1.01);
+  box-shadow:0 28px 60px -20px rgba(38,45,32,0.3);
+  border-color:var(--olive);
+}
+.card.hidden{display:none}
+
+/* card inner */
+.card-inner{padding:24px}
+.card.size-feature .card-inner{padding:28px 28px 24px}
+.card.size-compact .card-inner{padding:18px}
+
+/* ───────── AVATAR ───────── */
+.avatar{
+  width:100%;aspect-ratio:1.35/1;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Times New Roman",serif;font-weight:900;
+  font-size:88px;letter-spacing:-0.06em;
+  position:relative;overflow:hidden;
+}
+.avatar .num-overlay{
+  position:absolute;top:10px;right:14px;
+  font-size:10px;font-family:"Helvetica Neue",sans-serif;
+  letter-spacing:0.25em;font-weight:700;opacity:0.6;
+}
+.avatar .initial-char{position:relative;z-index:1}
+
+/* avatar color schemes */
+.av-olive{background:var(--olive-deep);color:var(--paper)}
+.av-forest{background:var(--forest);color:#C8D8C4}
+.av-terracotta{background:var(--terracotta);color:#F5EDE8}
+.av-slate{background:var(--slate);color:#E2E8F0}
+.av-navy{background:var(--navy);color:#D4E6F1}
+.av-wine{background:var(--wine);color:#F0D4DC}
+.av-sand{background:var(--sand);color:#1A1A1A}
+.av-ink{background:var(--ink);color:var(--paper)}
+.av-paper{background:var(--paper);color:var(--olive-deep);border-bottom:1px solid var(--line)}
+
+/* avatar decorative patterns */
+.av-diagonal{
+  background:repeating-linear-gradient(135deg,var(--olive-deep) 0px,var(--olive-deep) 2px,var(--forest) 2px,var(--forest) 12px);
+  color:var(--paper);
+}
+.av-split{
+  background:linear-gradient(180deg,var(--ink) 0%,var(--ink) 55%,var(--paper) 55%);
+  color:var(--paper);
+}
+.av-circle::before{
+  content:"";position:absolute;
+  width:180px;height:180px;border-radius:50%;
+  border:2px solid currentColor;opacity:0.2;
+}
+
+/* ───────── QUOTE BLOCK (artistic element) ───────── */
+.pull-quote{
+  padding:20px 24px;
+  border-left:3px solid var(--olive);
+  background:var(--olive-tint);
+  font-size:15px;font-style:italic;
+  line-height:1.7;color:var(--ink);
+  margin:0;
+}
+.pull-quote::before{
+  content:""";display:block;
+  font-size:48px;line-height:0.6;
+  font-family:"Times New Roman",serif;
+  color:var(--olive);margin-bottom:8px;
+  font-style:normal;
+}
+.card.size-feature .pull-quote{
+  font-size:17px;padding:24px 28px;
+}
+
+/* ───────── CARD CONTENT ───────── */
+.name-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:4px;gap:8px;padding-top:4px;
+}
+.name{
+  font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.15;
+}
+.card.size-feature .name{font-size:30px}
+.card.size-compact .name{font-size:20px}
+.mbti{
+  font-size:9px;letter-spacing:0.22em;
+  font-family:"Helvetica Neue",sans-serif;font-weight:700;
+  padding:3px 7px;border:1.5px solid var(--ink);white-space:nowrap;flex-shrink:0;
+}
+.role{
+  font-size:12px;color:var(--muted);margin-bottom:14px;
+  font-family:"Helvetica Neue","PingFang SC",sans-serif;
+  letter-spacing:0.02em;line-height:1.5;
+}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.tag{
+  font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
+  font-family:"Helvetica Neue",sans-serif;font-weight:600;
+  color:var(--olive-deep);padding:3px 6px;background:var(--olive-tint);
+}
+.give-want{
+  border-top:1px solid var(--line);padding-top:12px;
+  display:grid;gap:10px;font-size:11.5px;line-height:1.6;
+}
+.gw-label{
+  font-size:8px;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--muted);font-family:"Helvetica Neue",sans-serif;
+  font-weight:700;margin-bottom:2px;display:block;
+}
+.give .gw-label{color:var(--olive-deep)}
+.gw-body{color:var(--ink-2);font-family:"Helvetica Neue","PingFang SC",sans-serif}
+.read-more{
+  margin-top:14px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--olive);font-family:"Helvetica Neue",sans-serif;font-weight:600;
+  display:flex;align-items:center;gap:6px;
+  transition:color .2s;
+}
+.card:hover .read-more{color:var(--olive-deep)}
+.read-more::before{content:"→";font-size:13px;transition:transform .3s}
+.card:hover .read-more::before{transform:translateX(4px)}
+
+/* placeholder */
+.card.placeholder .avatar{
+  background:repeating-linear-gradient(45deg,var(--paper-2) 0px,var(--paper-2) 10px,var(--paper) 10px,var(--paper) 20px);
+  color:var(--muted);border-bottom:1px dashed var(--line);
+}
+.card.placeholder .name{color:var(--muted)}
+
+/* ───────── MODAL ───────── */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(20,22,18,0.75);
+  backdrop-filter:blur(12px);z-index:100;
+  display:none;align-items:flex-start;justify-content:center;
+  padding:40px 20px;overflow-y:auto;
+}
+.modal-backdrop.open{display:flex;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--paper-warm);width:min(860px,100%);
+  border:1.5px solid var(--ink);position:relative;
+  animation:slideUp .4s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-close{
+  position:absolute;top:16px;right:16px;width:38px;height:38px;
+  background:none;border:1.5px solid var(--ink);cursor:pointer;
+  font-size:16px;font-family:"Helvetica Neue",sans-serif;z-index:2;
+  transition:all .2s;display:flex;align-items:center;justify-content:center;
+}
+.modal-close:hover{background:var(--ink);color:var(--paper)}
+.modal-head{
+  padding:40px 48px 28px;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:100px 1fr auto;gap:24px;align-items:center;
+}
+.modal-avatar{
+  width:100px;height:100px;display:flex;align-items:center;justify-content:center;
+  font-family:"Times New Roman",serif;font-weight:900;font-size:56px;letter-spacing:-0.04em;
+}
+.modal-head h2{font-size:38px;letter-spacing:-0.02em;margin-bottom:4px;line-height:1.1}
+.modal-head .modal-role{
+  font-size:13px;color:var(--muted);font-family:"Helvetica Neue","PingFang SC",sans-serif;
+}
+.modal-head .modal-mbti{
+  font-size:10px;letter-spacing:0.22em;font-family:"Helvetica Neue",sans-serif;
+  font-weight:700;padding:5px 10px;border:1.5px solid var(--ink);align-self:start;
+}
+.modal-body{
+  padding:36px 48px 48px;font-size:14.5px;line-height:1.85;color:var(--ink-2);
+}
+.modal-body h3{
+  font-size:10px;letter-spacing:0.3em;text-transform:uppercase;
+  font-family:"Helvetica Neue",sans-serif;font-weight:700;color:var(--olive-deep);
+  margin-top:32px;margin-bottom:14px;border-top:1px solid var(--line);padding-top:24px;
+}
+.modal-body h3:first-child{margin-top:0;border-top:none;padding-top:0}
+.modal-body p{margin-bottom:12px}
+.modal-body .self-intro{
+  white-space:pre-wrap;
+  font-family:"Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  background:var(--paper-2);padding:24px 26px;
+  border-left:3px solid var(--olive);font-size:14px;line-height:1.95;
+}
+.modal-body .modal-quote{
+  font-size:20px;font-style:italic;line-height:1.5;
+  padding:20px 0;color:var(--ink);border:none;
+  font-family:"Times New Roman","Source Han Serif SC",serif;
+}
+.modal-body .modal-quote::before{
+  content:""";font-size:56px;line-height:0.5;display:block;
+  color:var(--olive);margin-bottom:12px;font-style:normal;
+}
+
+/* ───────── CONNECTION MODE ───────── */
+.wall.connection-mode .card{
+  opacity:0.15;transform:scale(0.97);
+  filter:grayscale(0.6);
+  transition:all .4s cubic-bezier(.2,.8,.2,1);
+}
+.wall.connection-mode .card.conn-source{
+  opacity:1;transform:scale(1.02) translateY(-4px);filter:none;
+  border-color:var(--olive);
+  box-shadow:0 20px 50px -15px rgba(38,45,32,0.35);
+}
+.wall.connection-mode .card.conn-target{
+  opacity:1;transform:scale(1);filter:none;
+  border-color:var(--terracotta);
+  box-shadow:0 12px 35px -12px rgba(139,94,60,0.3);
+}
+.wall.connection-mode .card.conn-target .conn-reason{display:block}
+.conn-reason{
+  display:none;
+  position:absolute;top:0;left:0;right:0;
+  background:var(--terracotta);color:#fff;
+  font-size:10px;letter-spacing:0.08em;
+  font-family:"Helvetica Neue","PingFang SC",sans-serif;
+  font-weight:600;padding:6px 12px;
+  text-align:center;z-index:2;
+  animation:slideDown .3s ease;
+}
+@keyframes slideDown{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+
+/* connection toggle button */
+.conn-toggle{
+  margin-left:auto;padding:10px 16px;
+  background:none;border:1.5px solid var(--olive-deep);
+  cursor:pointer;font-size:11px;
+  font-family:"Helvetica Neue",sans-serif;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--olive-deep);transition:all .2s;white-space:nowrap;
+}
+.conn-toggle:hover,.conn-toggle.active{
+  background:var(--olive-deep);color:var(--paper);
+}
+.conn-toggle.active::before{content:"● ";font-size:8px}
+
+/* connection hint */
+.conn-hint{
+  text-align:center;padding:12px 48px;
+  font-size:12px;color:var(--olive);
+  font-family:"Helvetica Neue","PingFang SC",sans-serif;
+  font-style:italic;
+  display:none;border-bottom:1px solid var(--line);
+}
+.conn-hint.show{display:block;animation:fadeIn .3s ease}
+
+/* modal connections section */
+.modal-connections{margin-top:28px;border-top:1px solid var(--line);padding-top:24px}
+.modal-connections h3{margin-top:0!important;border-top:none!important;padding-top:0!important}
+.conn-list{list-style:none;padding:0}
+.conn-list li{
+  padding:10px 0;border-bottom:1px solid var(--olive-tint);
+  display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;
+  font-size:13px;line-height:1.5;
+}
+.conn-list li:last-child{border-bottom:none}
+.conn-list .conn-name{
+  font-weight:700;font-size:13px;white-space:nowrap;
+  color:var(--olive-deep);font-family:"Helvetica Neue","PingFang SC",sans-serif;
+}
+.conn-list .conn-desc{color:var(--ink-2);font-family:"Helvetica Neue","PingFang SC",sans-serif}
+
+/* ───────── COLOPHON ───────── */
+.colophon{
+  border-top:2px solid var(--ink);padding:48px;
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:10px;letter-spacing:0.25em;text-transform:uppercase;
+  font-family:"Helvetica Neue",sans-serif;color:var(--muted);font-weight:600;
+}
+.colophon .legal{color:var(--ink)}
+
+/* scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:var(--line);border:2px solid var(--paper)}
+::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+
+@media(max-width:640px){
+  .modal-head{grid-template-columns:60px 1fr;gap:14px}
+  .modal-head .modal-mbti{grid-column:1/-1}
+  .modal-avatar{width:60px;height:60px;font-size:32px}
+  .modal-head h2{font-size:26px}
+  .modal-body{padding:24px 20px 32px}
+  .colophon{padding:28px 20px;flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">C-3 / Founders' Wall</div>
+  <div class="issue">Cohort 02 · May 2026 · Shanghai</div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="kicker">一号位 AI 工作坊 · 自我介绍</div>
+    <h1><span class="num">15</span>十五位<br><em>一号位</em>。</h1>
+  </div>
+  <div class="deck">
+    <strong>这不是名单。</strong>这是一张可以被翻阅的群像——每个人的来历、当下的难题、与彼此可能的连接。<br><br>点开任意一张卡片，听他们讲自己的故事。
+    <span class="stat">13 Founders · 2 Incoming · 1 Room</span>
+  </div>
+</section>
+
+<nav class="filter-bar" id="filterBar">
+  <div class="label">Filter</div>
+  <button data-filter="all" class="active">All · 全部</button>
+  <button data-filter="education">教育 / 哲学</button>
+  <button data-filter="commerce">商业 / 出海</button>
+  <button data-filter="tech">科技 / AI</button>
+  <button data-filter="medical">医疗 / 心理</button>
+  <button data-filter="design">设计 / 内容</button>
+  <button data-filter="park">园区 / 服务</button>
+  <button data-filter="INTJ">INTJ</button>
+  <button data-filter="ENTJ">ENTJ</button>
+  <button data-filter="ENFP">ENFP</button>
+  <button data-filter="INFJ">INFJ</button>
+  <button class="conn-toggle" id="connToggle">关联 / Links</button>
+</nav>
+<div class="conn-hint" id="connHint">关联模式已开启 — 点击任意卡片查看 TA 与谁有连接</div>
+
+<main class="wall" id="wall"></main>
+
+<div class="modal-backdrop" id="modal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="关闭">✕</button>
+    <div class="modal-head">
+      <div class="modal-avatar" id="modalAvatar">H</div>
+      <div><h2 id="modalName">Name</h2><div class="modal-role" id="modalRole">Role</div></div>
+      <div class="modal-mbti" id="modalMbti">INTJ</div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<footer class="colophon">
+  <div>C-3 Workshop · Founders' Wall · 一号位群像</div>
+  <div class="legal">Set in Times New Roman & Helvetica Neue · 2026</div>
+</footer>
+
+<script>
+const MEMBERS = [
+  {
+    id:"yan", num:"01", initial:"慕", av:"av-ink", size:"size-feature",
+    name:"晏慕龙", nameEn:"Dr off", role:"深圳尚恩迪科技 · Creative Director",
+    mbti:"INFJ", tags:["design","tech"], tagsLabel:["全栈设计","Branding","AI 分身"],
+    quote:"我希望可以把一个业务能力复制出来来干。",
+    give:"全栈设计能力（线上/线下/服装/Graphic）；AI+设计实战经验（3个月→1天）。",
+    want:"找公司定位 + 首批客户；造一个'设计师分身'复制产能。",
+    selfIntro:`香港理工大学内衣设计专业毕业，4 年前来上海。个人背景：前香港队篮球运动员，大学一场比赛断膝盖后转做设计。
+
+上一家公司做创意总监助理，带 10 人 design team。一个月前出来创业，做 design studio，帮客户解决视觉 / Branding 问题。
+
+代表战绩：在前公司最早期就接触 AI，把"服装设计→打板"原本需要 3 个月 + 约 70 万成本的流程，1 天内解决。
+
+我从小其实没有接触很多商业的东西，我从小是个运动员。现在最想做的是：用 AI 造自己的"设计师分身"——能产出大量 design / Branding 物料，但目前只有我一个人，产能很受限。`
+  },
+  {
+    id:"yang", num:"02", initial:"墨", av:"av-slate", size:"",
+    name:"杨墨", role:"安永华明（EY）· 高级顾问",
+    mbti:"ESTJ", tags:["commerce","tech"], tagsLabel:["网络安全合规","出海合规","TMT 大厂"],
+    quote:"AI 能干掉很多耗时但比人做得更好的活。",
+    give:"整合资源 + 梳理架构能力；TMT 行业人脉；合规咨询专业经验。",
+    want:"把重复性合规交付劳动自动化，释放人力到真正需要判断的地方。",
+    selfIntro:`哥伦比亚大学研究生，曾自己创业做数据分析方向。现在安永做网络安全合规 + 出海合规咨询，核心客户是 TMT 行业大厂。
+
+当前重点项目：上市鉴证报告、出海合规咨询、AI 相关合规。市面上主要大厂的核心合规交付物多由我们团队完成。
+
+核心技能：整合资源、梳理架构、整理资料。行业经验丰富，人脉广，可调动各领域专家做咨询。
+
+痛点：大量重复性劳动占据工作时间，每天加班到深夜是常态。强烈感受到 AI 能干掉很多"耗时但 AI 能比人做得更好"的活。`
+  },
+  {
+    id:"wu", num:"03", initial:"娟", av:"av-wine", size:"size-feature",
+    name:"吴丽娟", role:"沈阳诺依文化传播 · 总经理",
+    mbti:"ENFP", tags:["design","medical","education"], tagsLabel:["百万 IP 操盘","医疗会议","私域变现"],
+    quote:"一年服务院士，一年服务护士。",
+    give:"IP 操盘（百万粉「小阿成」）；知识付费 0→1 体系；私域成交话术；医疗学术会议资源。",
+    want:"AI 帮打通'高专业前端 IP + 商业变现后端'，中间衔接靠人力撑不动。",
+    selfIntro:`两家公司、不到 10 人小团队作战。新媒体公司操盘百万 IP「小阿成」；医疗会议公司承接院士级别学术会议。自我描述："一年服务院士，一年服务护士"——两个群体撕裂感。
+
+前临床心理治疗师出身（与任丁同为临床心理背景），心理学训练让我做私域运营时特别能抓粉丝真实需求。
+
+核心技能：有流量但不会变现的 IP 操盘、知识付费产品 0→1 体系搭建、私域成交话术设计、团队复制、新媒体账号商业化路径规划。
+
+当下焦点：激活「小阿成」IP 私域里近 1 万沉睡用户，从"做流量"转向"做变现"。`
+  },
+  {
+    id:"zhang", num:"04", initial:"明", av:"av-navy", size:"",
+    name:"张明昌", role:"上海鉴上剑技术咨询 · 创始人 · 法医",
+    mbti:"——", tags:["medical","commerce"], tagsLabel:["法医学","医疗纠纷","司法鉴定"],
+    quote:"急需 AI 帮我处理千页病历，自己看要花一两天。",
+    give:"司法鉴定全谱系（伤残/精神/亲子/毒物/死因）；医疗纠纷定性；保险拒赔诉讼。",
+    want:"千页病历分析 + 法医学因果判定 + 诉状起草 + 陈述书撰写。完全 AI 小白。",
+    selfIntro:`上海医科大学本科，复旦大学直博（法医学），美国留学两次（司法鉴定方向）。毕业后曾在学校教书。
+
+业务三块：1. 核心是医疗纠纷——律所合作团队 6 人，我做技术层"找问题"。昨天中山医院心脏二尖瓣手术患者死亡，这类案子我来定性医院责任。2. 保险拒赔诉讼——曾帮被拒赔 150 万意外险打赢。3. 养老板块 + 直播 + 公众号。
+
+AI 学习状态：完全小白。电脑是 Vivian 让我买的苹果，刚到手，连关机都不会。跟 Vivian 是科普协会认识，跟任丁老师一起听了 Vivian 课才决定来。`
+  },
+  {
+    id:"ren", num:"05", initial:"丁", av:"av-forest", size:"size-feature",
+    name:"任丁", role:"上海长征医院 · 心理医生主任 · 综合减压门诊创始人",
+    mbti:"——", tags:["medical","education"], tagsLabel:["精神科","正念减压","哈佛 PhD"],
+    quote:"与其看到患者在生命末节与死亡抗争，不如把着眼点放到生命最前端。",
+    give:"正念减压系统（Jon Kabat-Zinn 引入国内）；全国首家综合性减压门诊经验；精神科临床技能。",
+    want:"临床数据沉淀 + 科普传播 + 科研助理 + 私人助理——全栈 AI 赋能。",
+    selfIntro:`第二军医大学本硕，第一批国家公派联合培养博士（军队院校首次纳入计划），美国哈佛大学 PhD + 博士后。
+
+三栖专业背景：1. 肿瘤科（乳腺癌靶向治疗）；2. 精神科（哈佛期间师从导师转入）；3. IBCLC 国际认证哺乳顾问。
+
+毅然转精神科的原因："与其看到肿瘤患者在生命末节跟死亡抗争，不如把着眼点放到生命最前端——让他心生愉快地享受生活，作为肿瘤科医生的目的也达到了，还延长了生存期。"
+
+代表战绩：把 Jon Kabat-Zinn 在哈佛的正念减压系统引入国内；2026 年创建全国第一家综合性减压门诊；与华山医院还岩主任联合创办全国第一家身心联合减压示范门诊。
+
+考验精神科医生的就是临床技能和经验——我们没有 CT、磁共振、病理可以靠，要从最顶端诊断症状、识别医源论、给最精准的治疗。`
+  },
+  {
+    id:"wang", num:"06", initial:"栩", av:"av-paper", size:"size-compact",
+    name:"王栩若", role:"长征医院 · 任丁学生 · 科普内容搭档",
+    mbti:"INTJ", tags:["medical","design"], tagsLabel:["生化研二","科普创作","DeepSeek"],
+    quote:"想要多个数字分身都为我干活。",
+    give:"两周内用 DeepSeek 写 1 万字心理科普短剧剧本的实战经验。",
+    want:"课题数据严谨描述 + 高效科普产出 + 数字分身帮我干活。",
+    selfIntro:`本科生物学，研究生生化与分析生物学（目前研二）。暑假在上海科普作家协会跟任丁结缘。
+
+个人动机：自己教育压力大、有轻度心理困扰，本就对睡眠/心理感兴趣→想解决自己的问题→跟任老师深入学习后认同"心理知识普及是有价值的事"。
+
+当前工作：帮任丁做微信推送、科普文章、科普短句/科普短剧剧本。用 DeepSeek 在两周内写了 1 万字心理科普短剧剧本。
+
+当下焦点：1. 研二课题（希望 AI 按自己风格严谨描述实验结果）；2. 跟任老师的合作（保持知识准确性+快速输出）；3. 个人成长（做的事太多+身体不好+没精力兼顾）。`
+  },
+  {
+    id:"gao", num:"07", initial:"歆", av:"av-olive", size:"",
+    name:"高歆 Vivi", role:"上海云基地 · 合伙人 · 园区运营 / 企业服务",
+    mbti:"INTP⟷INFP", tags:["park","tech"], tagsLabel:["1000+ 企业","政企桥梁","AI+ 产业"],
+    quote:"我们去做翻译，有针对性地对接给企业。",
+    give:"杨浦区 1000+ 科技企业资源池；政府对接（户口/人才公寓/特批）；企业服务升级。",
+    want:"深挖企业核心需求的能力 + 更快对接科技企业的方法论。",
+    selfIntro:`上海云基地是杨浦区科技产业园区，运营 10 多年，聚焦云/大数据/人工智能，孵化器连接 1000+ 家企业，90% 以上是科技类。
+
+履历转型：起点是总裁秘书，因为承接老板战略灌输多→老板让她转去做业务→一路做到合伙人。
+
+当前重点：1. AI+ 产业联盟；2. 招商（基础业务）；3. 企业服务升级——从传统工商税务切入到企业核心（帮产品提效+帮找核心客户）；4. 政府对接/翻译——政府有大量资源，她做"翻译"有针对性地对接给到位的企业。
+
+平台型角色，自己效能提升→1000 家企业受益。Vivian 背书："BB 资源蛮多的，杨浦这边有问题我也会找她；我们公司创始人户口特批就是她帮的。"`
+  },
+  {
+    id:"min", num:"08", initial:"宸", av:"av-sand", size:"size-compact",
+    name:"闵天宸", role:"New Sailing · 供应链开发 / 数据分析",
+    mbti:"INFJ⟷ESTJ", tags:["commerce","tech"], tagsLabel:["NUS 数据分析","食品出海","选品逻辑"],
+    quote:"想看 AI 在跨文化里扮演什么角色。",
+    give:"数据分析专业能力（NUS）；食品出海供应链实操经验。",
+    want:"AI 生成产品手册 + 搭建选品逻辑 + 探索 AI 在跨国出海中的角色。",
+    selfIntro:`新加坡国立大学（NUS）本硕，数据分析专业。毕业后在叮咚买菜工作，New Sailing 是从"买菜"项目策划孵化出来的食品出海团队。
+
+公司里负责数据分析→逐步涉及商品开发。是 Heidi + Celine 的"打工人"——New Sailing 三人组里的供应链/数据角色。
+
+想用 AI 解决：1. 现业务侧——生成产品手册、搭建选品逻辑；2. 未来探索——AI 迭代太快，想看 AI 跟业务碰撞出什么火花，出海涉及多国，跨文化碰撞多，想知道 AI 在跨国出海里能扮演什么角色。`
+  },
+  {
+    id:"cheng", num:"09", initial:"帆", av:"av-terracotta", size:"",
+    name:"程帆 Celine", role:"New Sailing · 联创 · 销售 / BD / 国内运营",
+    mbti:"ENFJ", tags:["commerce"], tagsLabel:["法语出身","进出口 BD","生鲜履约"],
+    quote:"愈难愈好玩，难而正确的事情。",
+    give:"海外（欧洲）产品资源；化妆品/香水品牌 BD 经验；擅长沟通与品牌谈判。",
+    want:"AI 实时分析天气+品质预测+决策是否发货；创业期合规节点提醒助理。",
+    selfIntro:`学法语出身，第一份工作做法语翻译 2-3 年。转进出口→一直做进口食品（毕业时正值中国进口食品风口）。又做过 3-5 年化妆品/香水品牌 BD。现在反向运作：把国内产品带到国外主流商超/渠道。
+
+价值观转折："发现中国对进口食品标准极高，但内销标准很低"→一直想纠正这事。
+
+New Sailing 里带整个销售团队 + 生鲜采购 + 国内公司运营 + HR + 行政 + 报税（全包）。
+
+当下痛点：1. 生鲜天气分析（云南蓝莓尾季，今年雨季提前，蓝莓水分高不耐运输，原本保质 7-10 天→现在缩到 3 天甚至更短）——想要 AI 实时分析天气+品质预测+决策是否发货；2. 创业期合规节点提醒——报税/HR/行政各种突发→想 AI 做"日程+节点+后果"的合规规划助理。`
+  },
+  {
+    id:"heidi", num:"10", initial:"H", av:"av-diagonal", size:"size-feature",
+    name:"陆晓晓 Heidi", role:"New Sailing · 联创 · 食品出海决策层",
+    mbti:"ENTJ", tags:["commerce","tech"], tagsLabel:["8000+ 渠道","连续创业","投融资 AI"],
+    quote:"AI 写商业方案、分析投融资，比人还要精细。",
+    give:"8000+ 食品饮料渠道公司资源；海外零售渠道；擅长 BD + 商业天赋。",
+    want:"AI 赋能投融资方案 + 合同起草 + 标品海外市场输出。",
+    selfIntro:`澳大利亚 Monash University · Marketing 专业。自定位：连续创业者（18 岁创业至今）。
+
+18 岁第一家公司做旅游→2019 年疫情，项目被携程拿走。毕业后判断："创业需要钱和人脉→钱会自己来，人脉最难积累"→选平台型公司。第一份正职：FBIF（中国食品行业头部公司），2-3 年。机缘巧合通过邵明进叮咚买菜→加入出海团队。
+
+叮咚被美团收购仅国内事业部，海外没被收→New Sailing 独立出来继续做食品出海。团队从 6-7 人→100+ 人→现在精简到十几人。
+
+愿景：把中国的食品饮料输送到世界各地的主流货架——难而正确。每个国家不同法规+认证（FDA/SFA/Halal 等），在叮咚大树底下踩了非常多的坑，现在进入成熟阶段→带中国食品供应商抱团出海。
+
+AI 实战：投融资方案撰写+分析——"AI 写商业方案、分析投融资比人还精细"；合同撰写——"AI 写合同比我们法务还要高效"。`
+  },
+  {
+    id:"huang", num:"11", initial:"璨", av:"av-ink", size:"size-feature",
+    name:"黄有璨", role:"新个体创业学社 · 创始人",
+    mbti:"INTJ", tags:["education","design","tech"], tagsLabel:["三节课 · 4亿融资","运营之光 100万册","OPC 范式"],
+    quote:"单点都有解——难的是让 AI 把一个面串起来。",
+    give:"0→1 亿业务方法论；IP 运营 14 年全周期经验；AI+OPC 组织创新实践。",
+    want:"让 AI 把一个'面'串起来——新媒体全平台多 AI 矩阵 + 业务全 AI 改造。",
+    selfIntro:`教育行业创业 14 年。高中辍学，国家教育部承认的最高学历是初中——保留了清白之身。
+
+三大标签：1. 三节课创始人（2015-2021）——中国互联网职场人在线教育平台，培训产品经理/运营/新媒体/数据分析师。累计融资 4 亿，最高估值 30 亿，垂类头部。"2015-2021 中国互联网行业做这几类职业的人，差不多 50% 以上参加过我们培训。"
+
+2.《运营之光》作者——中国互联网行业豆瓣评分最高、销量最高的运营书，累计销量 100 万+。
+
+3. 2023 年起做 AI/OPC 公司——在 OPC 概念出现前就在做 OPC（One Person Company）。
+
+过去 14 年三个主线：教育、IP 运营（电视 1.0→互联网→新媒体全周期）、商业教育。擅长公司从 0→1→50，年收入几千万到 1 亿之间的组织/战略/业务问题。
+
+当下信念：AI + OPC + OPT 是未来新组织范式。当前攻坚：让 AI 把一个"面"串起来——新媒体全平台多账号，每个账号一个 AI 在运营 + 总管 AI 新媒体总监 + 数据回流到数仓→真正极致的 AI 时代模型。`
+  },
+  {
+    id:"zhiwei", num:"12", initial:"威", av:"av-forest", size:"size-feature",
+    name:"黄智威", role:"九经书院创始人 · 混沌大学南京校区校长",
+    mbti:"多次变化", tags:["education","commerce","tech"], tagsLabel:["哲学+商学+AI","企业 AI 落地","混沌创新"],
+    quote:"我是结合了哲学+商学+AI，陪着思考型创业者共同成长。",
+    give:"大量优秀创业者资源；中国最顶尖的智能/组织领导力/AI 企业落地资源；哲学家、艺术家网络。",
+    want:"学'个人怎么用好 AI'——自己业务是企业级 AI 落地，来学 Vivian 的个人 AI。",
+    selfIntro:`中南大学毕业。多重身份：1. 混沌创新商学院南京校区校长——聚焦 1000 万-10 亿中小企业创始人/联创，帮树立业务战略+团队达成战略共识。
+
+2. 九经书院创始人 CEO——讲"如实到中国哲学"的哲学书院，纯哲学不玄学不宗教。
+
+3. 南京牛首山人文总设计师。
+
+4. AI 企业落地操盘者——服务几十亿到几百亿的复杂性结构企业，帮做"公司 AI 化"。"天天陪着老师去企业里面落地的时候，发现 AI 的效率真是太吓人了。"
+
+市场定位：市场上独特的"哲学+商学+AI"结合体——陪伴"思考型创业者"共同成长。
+
+案例：昨天带天目湖（上市公司）董事长去雅朵集团，听执行副总分享数字化/AI 化落地。同时给中国利洲集团+博士中国做 AI 企业内训+品牌营销内训。
+
+自评："我只挑最厉害的操盘手。"`
+  },
+  {
+    id:"steven", num:"13", initial:"S", av:"av-navy", size:"",
+    name:"杜鑫磊 Steven", role:"上海恒温控制器厂 · 总经理 · 75年家族企业",
+    mbti:"ENTP", tags:["tech","commerce"], tagsLabel:["制造业二代","液冷阀门","桥水方法论"],
+    quote:"把公司当作一个机器——把所有问题都总结成经验存下来。",
+    give:"制造业供应链实战；液冷/阀门行业资源（美的/格力/海尔/开利/大金）；AI 重度使用经验。",
+    want:"桥水式公司系统化（经验沉淀+不重复犯错）+ 建个人贾维斯数字分身。",
+    selfIntro:`奥克兰大学（新西兰）电子电器工程师。早期在富士康一年半做苹果手机生产经理。2019 年回国接手家族企业。
+
+公司聚焦自控元件/阀门。当下风口业务：给液冷做阀门——因为数据中心算力攀升，散热从风冷→液冷。客户：英维克、维谛（富士康/英伟达供应商）。传统客户：美的/格力/海尔/开利/特灵/约克/大金。
+
+AI 使用："凡事就问。豆包反正各种都在用。"大事/组织变更→都先问 AI 拿建议。战略方针落地/推进/计划——AI 生成大量备选他来筛。
+
+当前最大焦点：第一层·公司维度——参考桥水方法论，把质量/售后/采购/销售/技术所有问题总结归纳成经验沉淀下来，提升整个公司机器运营效率。第二层·个人维度——建一个像贾维斯一样的数字人，交朋友、管公司、日常生活，所有事丢给他处理。"我其实挺懒。"`
+  },
+  {
+    id:"mimi", num:"14", initial:"咪", av:"av-terracotta", size:"size-compact", placeholder:true,
+    name:"任咪咪", role:"上海无界线科技 · 创始人",
+    mbti:"——", tags:["tech"], tagsLabel:["科技创业","待补充","5/23 下午到"],
+    quote:"",
+    give:"待补充——5/23 下午到场后录入。",
+    want:"待补充。",
+    selfIntro:""
+  },
+  {
+    id:"you", num:"15", initial:"佳", av:"av-sand", size:"size-compact", placeholder:true,
+    name:"游佳", role:"Coach · 管培生",
+    mbti:"——", tags:["commerce"], tagsLabel:["Coach","管培生","5/24 到"],
+    quote:"",
+    give:"待补充——5/24 到场后录入。",
+    want:"待补充。",
+    selfIntro:""
+  }
+];
+
+// ─────────── RENDER ───────────
+const wall = document.getElementById('wall');
+
+function renderCard(m, idx){
+  const placeholderCls = m.placeholder ? 'placeholder' : '';
+  const sizeCls = m.size || '';
+  const filterData = [...m.tags, m.mbti].join(' ');
+  const quoteHtml = m.quote
+    ? `<div class="pull-quote">${m.quote}</div>` : '';
+  const readLabel = m.placeholder ? '待补充' : '阅读完整自述';
+
+  return `
+  <article class="card ${placeholderCls} ${sizeCls}" data-id="${m.id}" data-filters="${filterData}" style="transition-delay:${Math.min(idx*50,500)}ms">
+    <div class="avatar ${m.av}">
+      <span class="initial-char">${m.initial}</span>
+      <span class="num-overlay">${m.num}</span>
+    </div>
+    ${quoteHtml}
+    <div class="card-inner">
+      <div class="name-row">
+        <div class="name">${m.name}</div>
+        <div class="mbti">${m.mbti}</div>
+      </div>
+      <div class="role">${m.role}</div>
+      <div class="tags">${m.tagsLabel.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      <div class="give-want">
+        <div class="give"><span class="gw-label">可提供 / Give</span><span class="gw-body">${m.give}</span></div>
+        <div class="want"><span class="gw-label">想要 / Want</span><span class="gw-body">${m.want}</span></div>
+      </div>
+      <div class="read-more">${readLabel}</div>
+    </div>
+  </article>`;
+}
+
+wall.innerHTML = MEMBERS.map(renderCard).join('');
+
+// ─────────── INTERSECTION OBSERVER ───────────
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+  });
+},{threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.card').forEach(c=>obs.observe(c));
+
+// ─────────── MODAL ───────────
+const modal = document.getElementById('modal');
+function openModal(m){
+  document.getElementById('modalName').textContent = m.name;
+  document.getElementById('modalRole').textContent = m.role;
+  document.getElementById('modalMbti').textContent = m.mbti;
+  const av = document.getElementById('modalAvatar');
+  av.textContent = m.initial;
+  av.className = 'modal-avatar ' + m.av;
+  const body = document.getElementById('modalBody');
+  if(m.placeholder){
+    body.innerHTML = `<h3>占位中 / Placeholder</h3><p>这位成员尚未到场。到场后录入自述，将自动替换此卡片。</p><h3>临时身份</h3><p>${m.role}</p>`;
+  } else {
+    const quoteBlock = m.quote ? `<div class="modal-quote">${m.quote}</div>` : '';
+    const conns = CONNECTIONS[m.id] || [];
+    const connHtml = conns.length ? `
+      <div class="modal-connections">
+        <h3>关联网络 / Connections</h3>
+        <ul class="conn-list">${conns.map(c=>{
+          const target = MEMBERS.find(x=>x.id===c.to);
+          return `<li><span class="conn-name">${target?target.name:c.to}</span><span class="conn-desc">${c.reason}</span></li>`;
+        }).join('')}</ul>
+      </div>` : '';
+    body.innerHTML = `
+      ${quoteBlock}
+      <h3>身份标签 / Identity</h3>
+      <p>${m.tagsLabel.map(t=>'· '+t).join('<br>')}</p>
+      <h3>我能提供 / Give</h3><p>${m.give}</p>
+      <h3>我想要 / Want</h3><p>${m.want}</p>
+      <h3>完整自述 / Full Story</h3>
+      <div class="self-intro">${m.selfIntro}</div>
+      ${connHtml}`;
+  }
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('modalClose').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();if(connMode){exitConnectionMode()}}});
+
+// ─────────── FILTER ───────────
+const filterBar = document.getElementById('filterBar');
+filterBar.addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON' || e.target.id==='connToggle')return;
+  filterBar.querySelectorAll('button:not(.conn-toggle)').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  const f=e.target.dataset.filter;
+  document.querySelectorAll('.card').forEach(card=>{
+    card.classList.toggle('hidden', f!=='all' && !card.dataset.filters.includes(f));
+  });
+  exitConnectionMode();
+});
+
+// ─────────── PARALLAX (hero) ───────────
+let ticking=false;
+window.addEventListener('scroll',()=>{
+  if(!ticking){requestAnimationFrame(()=>{
+    const y=window.scrollY;
+    const hero=document.querySelector('.hero h1');
+    if(hero)hero.style.transform=`translateY(${y*0.06}px)`;
+    ticking=false;
+  });ticking=true}
+});
+
+// ─────────── CONNECTIONS DATA ───────────
+const CONNECTIONS = {
+  yan:[
+    {to:"yang", reason:"同款'运动→膝伤→转行'人生路径"},
+    {to:"huang", reason:"黄有璨的'1人+AI员工'范式正是晏慕龙想要的"},
+    {to:"zhiwei", reason:"智威创业者网络是设计需求最旺的客户池"},
+    {to:"gao", reason:"BB 1000家科技企业池→设计studio找客户"},
+    {to:"steven", reason:"数字分身共修组：都在追'AI复制自己'"}
+  ],
+  yang:[
+    {to:"yan", reason:"同款'运动→膝伤→转行'人生路径"},
+    {to:"min", reason:"两位数据分析背景（NUS/哥大双海归）"},
+    {to:"heidi", reason:"Heidi多国食品认证经验↔杨墨出海合规"},
+    {to:"huang", reason:"黄有璨用AI+OPC缩到1人→可取经'拆解职业流水线'"},
+    {to:"gao", reason:"都是'跨界+战略翻译者'型"},
+    {to:"ren", reason:"AI合规↔医疗AI合规双向命题"}
+  ],
+  wu:[
+    {to:"ren", reason:"同为临床心理出身；可帮任丁做IP打造"},
+    {to:"wang", reason:"吴丽娟擅长'医疗背景→个人IP'体系化路径"},
+    {to:"huang", reason:"黄有璨深耕IP运营14年→IP操盘师父级"},
+    {to:"cheng", reason:"BD品牌沟通+化妆品资源↔医疗会议+私域操盘"}
+  ],
+  zhang:[
+    {to:"ren", reason:"科普协会老朋友；医疗×法医纠纷天然合作面"},
+    {to:"wang", reason:"医疗×法医纠纷可对接医院端"},
+    {to:"yan", reason:"张明昌做伤残鉴定→晏慕龙/杨墨都是运动膝伤当事人"},
+    {to:"yang", reason:"运动膝伤+意外险定性→现场已主动抛梗"}
+  ],
+  ren:[
+    {to:"wang", reason:"师生+科普内容生产搭档"},
+    {to:"wu", reason:"同为临床心理出身；吴丽娟可帮做IP打造"},
+    {to:"zhang", reason:"科普协会老朋友；医疗端合作"},
+    {to:"yang", reason:"AI合规↔医疗AI合规双向命题"},
+    {to:"gao", reason:"园区员工心理福利对接"}
+  ],
+  wang:[
+    {to:"ren", reason:"师生+科普搭档"},
+    {to:"wu", reason:"吴丽娟可帮做'医疗背景→个人IP'"},
+    {to:"yang", reason:"都是'高学历+重复劳动重'→聊AI拆解学术写作"},
+    {to:"steven", reason:"数字分身共修组"},
+    {to:"huang", reason:"黄有璨'IP业务AI改造'路径可直接复用"}
+  ],
+  gao:[
+    {to:"yan", reason:"1000家科技企业池→设计studio找客户"},
+    {to:"yang", reason:"园区出海企业↔TMT合规"},
+    {to:"zhang", reason:"政府对接+园区企业法务需求"},
+    {to:"ren", reason:"政府/园区员工心理福利对接"},
+    {to:"wu", reason:"园区学术资源"},
+    {to:"min", reason:"园区大量出海科技企业↔New Sailing食品出海"},
+    {to:"steven", reason:"园区大量制造业转型企业"},
+    {to:"zhiwei", reason:"都是'跨界+战略翻译者'型"}
+  ],
+  min:[
+    {to:"heidi", reason:"New Sailing三人组：食品出海铁三角"},
+    {to:"cheng", reason:"New Sailing三人组：供应链/数据角色"},
+    {to:"yang", reason:"两位数据分析背景（NUS/哥大）"},
+    {to:"gao", reason:"BB园区出海科技企业可对接"},
+    {to:"steven", reason:"富士康/买菜系/苹果供应链相关背景"}
+  ],
+  cheng:[
+    {to:"heidi", reason:"New Sailing三人组：Heidi海外通路+Celine国内运营"},
+    {to:"min", reason:"New Sailing三人组：铁三角"},
+    {to:"wu", reason:"BD品牌沟通↔私域操盘跨界"},
+    {to:"zhang", reason:"'AI给概率人做决断'方法论可借鉴"},
+    {to:"ren", reason:"创业期一人扛多角色→合规/行政/节点提醒刚需"}
+  ],
+  heidi:[
+    {to:"cheng", reason:"New Sailing联创：海外通路+国内运营互补"},
+    {to:"min", reason:"New Sailing三人组：数据/供应链"},
+    {to:"yang", reason:"多国食品认证↔出海合规直接关联"},
+    {to:"huang", reason:"18岁连续创业→OPC范式可深聊"},
+    {to:"zhiwei", reason:"创业者中食品/消费品出海需求"},
+    {to:"gao", reason:"8000渠道+1000企业=资源交换圈"},
+    {to:"steven", reason:"富士康/买菜系/供应链串联"}
+  ],
+  huang:[
+    {to:"zhiwei", reason:"互为旧识；工作坊里资源密度最高的双子星"},
+    {to:"yan", reason:"'一人公司+AI员工'范式正是晏慕龙想要的"},
+    {to:"wu", reason:"深耕IP运营14年→IP操盘师父级"},
+    {to:"wang", reason:"'IP业务AI改造'路径可直接复用"},
+    {to:"heidi", reason:"擅长0→1亿组织搭建↔New Sailing正处0→1"},
+    {to:"yang", reason:"AI+OPC缩到1人→可取经"},
+    {to:"steven", reason:"两人都是重度AI实操派"},
+    {to:"cheng", reason:"擅长0→1亿组织搭建↔New Sailing战略"}
+  ],
+  zhiwei:[
+    {to:"huang", reason:"互为旧识；把黄有璨介绍给Vivian的关键中介"},
+    {to:"gao", reason:"企业AI落地↔园区企业服务"},
+    {to:"heidi", reason:"企业网络中食品/消费品出海需求"},
+    {to:"yang", reason:"几十亿企业里有大量合规需求"},
+    {to:"ren", reason:"企业网络里'健康/心理福利'需求侧"},
+    {to:"wu", reason:"创业者网络是潜在客户池"},
+    {to:"yan", reason:"创业者网络是设计需求最旺的客户池"},
+    {to:"steven", reason:"Steven是智威企业AI落地的天然客户"}
+  ],
+  steven:[
+    {to:"zhiwei", reason:"'桥水式公司系统化'=智威企业AI落地核心案例"},
+    {to:"huang", reason:"两人都是重度AI实操派；OPC+业务系统化经验"},
+    {to:"gao", reason:"制造业+杨浦区→园区制造业转型企业"},
+    {to:"min", reason:"富士康/买菜系/苹果供应链相关背景"},
+    {to:"heidi", reason:"富士康/买菜系/供应链串联"},
+    {to:"yan", reason:"数字分身共修组"},
+    {to:"wang", reason:"数字分身共修组"}
+  ]
+};
+
+// ─────────── CONNECTION MODE LOGIC ───────────
+let connMode = false;
+const connToggle = document.getElementById('connToggle');
+const connHint = document.getElementById('connHint');
+const wallEl = document.getElementById('wall');
+
+function exitConnectionMode(){
+  connMode = false;
+  connToggle.classList.remove('active');
+  connHint.classList.remove('show');
+  wallEl.classList.remove('connection-mode');
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.remove('conn-source','conn-target');
+    const r = c.querySelector('.conn-reason');
+    if(r) r.remove();
+  });
+}
+
+function enterConnectionMode(){
+  connMode = true;
+  connToggle.classList.add('active');
+  connHint.classList.add('show');
+}
+
+connToggle.addEventListener('click',()=>{
+  if(connMode) exitConnectionMode();
+  else enterConnectionMode();
+});
+
+function showConnections(sourceId){
+  const conns = CONNECTIONS[sourceId] || [];
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.remove('conn-source','conn-target');
+    const r = c.querySelector('.conn-reason');
+    if(r) r.remove();
+  });
+  if(!conns.length) return;
+  wallEl.classList.add('connection-mode');
+  const sourceCard = document.querySelector(`.card[data-id="${sourceId}"]`);
+  if(sourceCard) sourceCard.classList.add('conn-source');
+  conns.forEach(conn=>{
+    const targetCard = document.querySelector(`.card[data-id="${conn.to}"]`);
+    if(targetCard){
+      targetCard.classList.add('conn-target');
+      const label = document.createElement('div');
+      label.className = 'conn-reason';
+      label.textContent = conn.reason;
+      targetCard.appendChild(label);
+    }
+  });
+}
+
+// Override card click behavior based on mode
+wall.addEventListener('click',e=>{
+  const card = e.target.closest('.card');
+  if(!card) return;
+  const m = MEMBERS.find(x=>x.id===card.dataset.id);
+  if(!m) return;
+  if(connMode){
+    showConnections(m.id);
+  } else {
+    openModal(m);
+  }
+});
+</script>
+</body>
+</html>
